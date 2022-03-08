@@ -6,9 +6,22 @@ const app = express();
 
 const server = http.createServer(app);
 
-const wss = new WebSocket.Server({server});
+const wss = new WebSocket.Server({ server });
 
 var i = 0;
+
+function randomData(): any {
+    let message = {
+        event: "onSelectWell",
+        nameWell: "T1",
+        data: {
+            prodOil: Math.floor(Math.random() * 50)
+        }
+    }
+
+    return message;
+}
+
 
 wss.on('connection', (ws: WebSocket) => {
     ws.on('message', (message: string) => {
@@ -22,9 +35,9 @@ wss.on('connection', (ws: WebSocket) => {
                 .forEach(client => {
                     if (client != ws) {
                         client.send(`Клиент отправил -> ${message}`);
-                    }    
+                    }
                 });
-            
+
         } else {
             ws.send(`Вы отправили -> (${message})\n ТЕСТОВОЕ СООБЩЕНИЕ`);
         }
@@ -32,11 +45,12 @@ wss.on('connection', (ws: WebSocket) => {
     });
 
     function sendMess() {
-       ws.send(JSON.stringify({
-           x: i * i,
-           y: i * i + 1
-       }));
-       i++;
+        ws.send(JSON.stringify(randomData()));
+        /*ws.send(JSON.stringify({
+            x: i * i,
+            y: i * i + 1
+        }));
+        i++;*/
     }
 
     setInterval(() => { sendMess(); }, 5000);

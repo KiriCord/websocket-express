@@ -1,0 +1,15 @@
+{
+    "event": "onSelectWell",
+    "nameWell": "123",
+    "data": [
+        {
+            "prodOil": 50
+        },
+        {
+            "prodOil": 70
+        },
+        {
+            "prodOil": 40
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "event": "onChangePeriod",
+    "nameWell": "123",
+    "data": [
+        {
+            "prodOil": 50
+        }
+    ],
+    "startTime": {
+        "month": 12,
+        "year": 2018
+    },
+    "endTime": {
+        "month": 6,
+        "year": 2022
+    }
+}
