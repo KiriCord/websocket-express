@@ -3,5 +3,5 @@
 ## Запуск
 ```bash
 tsc
-node ./dist/server/server.js
+npm start
 ```
