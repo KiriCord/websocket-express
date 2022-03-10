@@ -2,6 +2,5 @@
 
 ## Запуск
 ```bash
-tsc
 npm start
 ```
